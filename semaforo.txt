@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+--Realizado por: Alejandro Meza- German Caycedo - Dicson Quimbayo - Santiago Florian 
+
+entity semaforo is
+port(timer,clock,carro: in std_logic;
+		avenida,camino,act_temporizador: out std_logic);
+end entity;
+
+
+architecture semaforo_arc of semaforo is
+type estado is (rojo,verde);
+begin
+		process(timer,clock) is
+		begin
+			case estado is
+				when rojo => carro := '1';
+				when verde => carro := '0';
+			end case;				
+		end process;
+end architecture;
